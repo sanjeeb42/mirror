@@ -1,9 +1,9 @@
 # mirror 🛌📽️
 
-> **The Problem:** My HDMI cable is slightly too short to reach my bed, and walking over to sit at my desk after a long day violates my personal code of ethics. But I really wanted to watch movies on my projector from the comfort of my bed.
+> **The Problem:** The projector is at my desk, and the HDMI cable is too short to reach my bed. Getting out of bed to sit at the desk after a long day is simply out of the question.
 >
-> **The Reasonable Solution:** Order a longer HDMI cable on Amazon for ₹499 and wait for delivery.  
-> **What I Did Instead:** Spent hours engineering a real-time, zero-latency screen mirror over local Wi-Fi so my Mac streams to my iPhone, which connects directly to the projector on my nightstand.
+> **The Reasonable Solution:** Buy a longer HDMI cable on Amazon for ₹499 and wait 2 days.  
+> **What I Did Instead:** Left my phone at the desk plugged into the projector, stayed in bed with my Mac, and engineered a real-time WebRTC streamer to beam my Mac screen straight to the phone. And *wooh* — movie night from bed unlocked.
 
 ---
 
@@ -11,14 +11,19 @@
 
 Peak laziness breeds peak engineering.
 
-Here is the exact bedtime dilemma:
-1. I have a projector setup near my bed, but the projector's HDMI cable only reaches my nightstand.
-2. My Mac was plugged in at my desk across the room.
-3. Walking across the cold floor every time I wanted to pause, change video, or just watch from bed was out of the question.
-4. My iPhone was right next to me in bed, and could easily plug into the projector via an adapter.
+Here is the exact setup:
+1. The **projector is sitting at my desk**.
+2. The **HDMI cable is way too short** to reach my bed.
+3. I wanted to lie in bed with my Mac, browsing and controlling what to watch.
+4. My phone can just sit at the desk, plugged into the projector.
 
-So instead of spending ₹499 or getting out of bed, I wrote this:
-**Mac screen** ➔ captured locally ➔ streamed over Wi-Fi via WebRTC ➔ opened instantly in iPhone Safari ➔ projected onto the wall/ceiling. Zero apps to install on iOS.
+So instead of spending ₹499 on a 5-meter cable or dragging my blankets to the desk, I built this:
+
+```text
+[ Mac in Bed ] ──(Wi-Fi / WebRTC)──▶ [ iPhone at Desk ] ──(HDMI)──▶ [ Projector ]
+```
+
+Mac captures screen in real-time ➔ streams over local Wi-Fi with practically zero latency ➔ iPhone opens a simple URL in Safari and outputs to the projector. Zero iOS apps required.
 
 ---
 
@@ -26,33 +31,33 @@ So instead of spending ₹499 or getting out of bed, I wrote this:
 
 - **macOS ScreenCaptureKit**: Captures the Mac display smoothly at 60 FPS.
 - **Embedded WebRTC + WebSockets**: Streams direct peer-to-peer video locally with practically zero lag.
-- **Browser-only Client**: Safari on iPhone opens the local URL, accepts the WebRTC stream, goes full screen, and feeds the projector.
+- **Browser-only Client**: iPhone Safari connects over local Wi-Fi, enters fullscreen, and pushes the video output straight to the HDMI-connected projector.
 
 ---
 
 ## How to run
 
-### 1. Start the streamer on your Mac
+### 1. Start the streamer on your Mac (from bed)
 
 ```bash
 swift run
 ```
 
-### 2. Connect from bed
+### 2. Connect the phone (at desk)
 
-1. Look at your terminal (or don't, if you can see it from bed).
-2. Scan the printed QR code with your iPhone camera, or open:
+1. Plug your phone into the projector's HDMI cable at your desk.
+2. Open Safari on the phone and navigate to:
    ```text
    https://<your-mac-local-ip>:8443
    ```
-3. Hit **Connect** & go full screen.
-4. Plug iPhone into the projector. Relax.
+   *(or scan the QR code printed in the terminal)*
+3. Tap **Connect** & go fullscreen.
+4. Jump back into bed with your Mac. Enjoy the big screen!
 
 ---
 
 ## Requirements
 
 - macOS 13.0+ (Ventura or newer)
-- iPhone / iPad / any device with a modern browser on the same Wi-Fi
-- A projector plugged into your phone (or just your phone screen)
-- Zero desire to get out of bed
+- iPhone / iPad / any device connected to the projector on the same Wi-Fi
+- Zero desire to sit at your desk
