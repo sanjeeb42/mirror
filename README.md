@@ -2,8 +2,8 @@
 
 > **The Problem:** The projector is at my desk, and the HDMI cable is too short to reach my bed. Getting out of bed to sit at the desk after a long day is simply out of the question.
 >
-> **The Reasonable Solution:** Buy a longer HDMI cable on Amazon for ₹499 and wait 2 days.  
-> **What I Did Instead:** Left my phone at the desk plugged into the projector, stayed in bed with my Mac, and engineered a real-time WebRTC streamer to beam my Mac screen straight to the phone. And *wooh* — movie night from bed unlocked.
+> **The Reasonable Solution:** Buy a super long, high-speed HDMI cable on Amazon for ₹3,000 and wait 2 days.  
+> **What I Did Instead:** Left my phone at the desk plugged into the projector, stayed in bed with my Mac, and engineered a real-time WebRTC streamer to beam my Mac screen straight to the phone. Saved ₹3,000 and *wooh* — movie night from bed unlocked.
 
 ---
 
@@ -17,7 +17,7 @@ Here is the exact setup:
 3. I wanted to lie in bed with my Mac, browsing and controlling what to watch.
 4. My phone can just sit at the desk, plugged into the projector.
 
-So instead of spending ₹499 on a 5-meter cable or dragging my blankets to the desk, I built this:
+So instead of blowing ₹3,000 on an absurdly long cable or dragging my blankets to the desk, I built this:
 
 ```text
 [ Mac in Bed ] ──(Wi-Fi / WebRTC)──▶ [ iPhone at Desk ] ──(HDMI)──▶ [ Projector ]
@@ -60,4 +60,4 @@ swift run
 
 - macOS 13.0+ (Ventura or newer)
 - iPhone / iPad / any device connected to the projector on the same Wi-Fi
-- Zero desire to sit at your desk
+- Zero desire to sit at your desk or spend ₹3,000 on cables
