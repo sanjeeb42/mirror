@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Mac Screen Mirror</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Top Status Overlay Bar -->
+    <header id="status-bar" class="hud-bar">
+      <div class="hud-left">
+        <span class="pulse-dot" id="status-dot"></span>
+        <span id="status-text">Ready to Connect</span>
+      </div>
+      <div class="hud-right">
+        <span id="stats-badge" class="badge hidden">720p 30fps</span>
+        <button id="toggle-hud-btn" class="icon-btn" title="Toggle HUD">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Viewport -->
+    <main id="player-container">
+      <video id="remote-video" autoplay playsinline muted></video>
+      
+      <!-- Welcome / Connect Card -->
+      <div id="connect-card" class="card">
+        <div class="icon-glow">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </div>
+        <h2>Mac Screen Mirror</h2>
+        <p class="subtitle">Direct peer-to-peer screen streaming over local Wi-Fi</p>
+        
+        <div class="btn-group">
+          <button id="connect-btn" class="primary-btn">
+            <span class="btn-text">Connect to Mac</span>
+            <span class="spinner hidden" id="connect-spinner"></span>
+          </button>
+        </div>
+        
+        <p id="error-message" class="error-text hidden"></p>
+      </div>
+    </main>
+
+    <!-- Bottom HUD Controls (Float) -->
+    <footer id="controls-bar" class="hud-footer hidden">
+      <button id="disconnect-btn" class="danger-btn">Disconnect</button>
+      <button id="fullscreen-btn" class="secondary-btn">Full Screen</button>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
